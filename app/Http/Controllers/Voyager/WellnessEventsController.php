@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Voyager;
 
 use App\Http\Controllers\Controller;
+use App\Models\WellnessEvent;
 use App\Models\WellnessEventsUser;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Voyager;
 use App\Models\WellnessPoint;
@@ -15,7 +17,7 @@ class WellnessEventsController extends Controller
     {
         $this->middleware(function ($request, $next) {
             // Verificar si el usuario no tiene ninguno de los roles permitidos
-            if (!$request->user()->hasAnyRole(['admin', 'LiderBienestar', 'AuxiliarBienestar'])) {
+            if (!$request->user()->hasAnyRole(['admin', 'LiderBienestar', 'AuxiliarBienestar', 'EstudianteBienestar'])) {
                 // Redirigir al usuario a la página de inicio del administrador
                 return redirect()->route('voyager.dashboard');
             }
@@ -28,7 +30,17 @@ class WellnessEventsController extends Controller
     }
 
     public function showPuntosForm($event_id) {
-        // Aquí debes retornar la vista del formulario de carga de puntos
+        // Buscar el evento por su event_id
+        $event = WellnessEvent::where('id', $event_id)->firstOrFail();
+
+        // Verificar si la fecha actual está dentro del rango de fechas
+        $now = Carbon::now();
+        if ($now->lt($event->start_date) || $now->gt($event->end_date)) {
+            // Si la fecha actual no está dentro del rango, redireccionar a una vista de error
+            return view('admin.error.event_not_active', compact('event'));
+        }
+
+        // Si la fecha actual está dentro del rango, mostrar el formulario de carga de puntos
         return view('admin.wellness-events-registers', compact('event_id'));
     }
     public function savePuntosFrom(Request $request)
