@@ -255,4 +255,7 @@ return [
            ],
        ]*/
     ],
+    'custom_formfields' => [
+        App\Forms\Fields\ButtonFormField::class,
+    ],
 ];

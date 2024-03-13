@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Forms\Fields\ButtonFormField;
 use Illuminate\Support\ServiceProvider;
-
+use Voyager;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        Voyager::addFormField(ButtonFormField::class);
     }
 
     /**
