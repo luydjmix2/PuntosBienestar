@@ -18,13 +18,14 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('numero_de_identificacion')->unique()->nullable();
             $table->string('celular')->nullable();
-            $table->string('programa')->nullable();
+            $table->unsignedBigInteger('programs_id');
             $table->string('jornada')->nullable();
             $table->integer('puntos_acumulados')->default(0);
             $table->timestamps();
 
             // Foreign key constraint
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('programs_id')->references('id')->on('programs')->onDelete('cascade');
         });
     }
 

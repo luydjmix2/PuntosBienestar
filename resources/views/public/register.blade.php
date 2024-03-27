@@ -40,9 +40,9 @@
         background-color: #0056b3;
     }
     .content-container {
-    min-height: 100vh !important;
-    height: auto !important; /* Ajusta la altura automáticamente según el contenido */
-    max-height: 100% !important; /* Limita la altura máxima al 100% de la ventana del navegador */
+        min-height: 100vh !important;
+        height: auto !important; /* Ajusta la altura automáticamente según el contenido */
+        max-height: 100% !important; /* Limita la altura máxima al 100% de la ventana del navegador */
     }
 @stop
 

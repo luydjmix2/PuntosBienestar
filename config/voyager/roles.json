@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "admin",
+        "display_name": "Administrador",
+        "created_at": "2024-03-27 00:11:55",
+        "updated_at": "2024-03-27 00:11:55"
+    },
+    {
+        "id": 2,
+        "name": "user",
+        "display_name": "Usuario Normal",
+        "created_at": "2024-03-27 00:11:55",
+        "updated_at": "2024-03-27 00:11:55"
+    },
+    {
+        "id": 3,
+        "name": "LiderBienestar",
+        "display_name": "L\u00edder Bienestar",
+        "created_at": "2024-03-10 18:59:46",
+        "updated_at": "2024-03-10 18:59:46"
+    },
+    {
+        "id": 4,
+        "name": "AuxiliarBienestar",
+        "display_name": "Auxiliar Bienestar",
+        "created_at": "2024-03-10 19:38:22",
+        "updated_at": "2024-03-10 19:38:22"
+    },
+    {
+        "id": 5,
+        "name": "EstudianteBienestar",
+        "display_name": "Estudiante Bienestar",
+        "created_at": "2024-03-13 16:59:34",
+        "updated_at": "2024-03-13 16:59:34"
+    }
+]
